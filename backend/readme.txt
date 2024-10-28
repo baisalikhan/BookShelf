@@ -18,3 +18,6 @@
 
     6.2 Add the following line in the package.js > scripts
         "start": "nodemon index.js"
+
+7. npm i cors
+    for allowing the client to communicate with backend
