@@ -46,6 +46,38 @@ app.post("/books", (req, res) => {
   });
 });
 
+app.delete("/books/:id", (req, res) => {
+  const bookId = req.params.id;
+  const query = "DELETE FROM books WHERE id = ?";
+
+  db.query(query, [bookId], (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+    return res.json("Book has been deleted successfully");
+  });
+});
+
+app.put("/books/:id", (req, res) => {
+  const bookId = req.params.id;
+  const query =
+    "UPDATE books SET `title` = ?, `desc` = ?, `price` = ?, `cover` = ? WHERE id = ?";
+
+  const values = [
+    req.body.title,
+    req.body.desc,
+    req.body.price,
+    req.body.cover,
+  ];
+
+  db.query(query, [...values, bookId], (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+    return res.json("Book has been Updated successfully");
+  });
+});
+
 app.listen(8800, () => {
   console.log("Connected to backend");
 });
