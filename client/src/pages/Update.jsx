@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import HeroSection from "../components/HeroSection";
 
 const Update = () => {
   const navigate = useNavigate();
@@ -30,36 +31,45 @@ const Update = () => {
   };
 
   return (
-    <div className="form">
-      <h1>Update New Book</h1>
-      <input
-        type="text"
-        placeholder="title"
-        onChange={handleChange}
-        name="title"
+    <div>
+      <HeroSection
+        title={"Update Book"}
+        desc={
+          "Update book by entering the book details in its corresponding fields."
+        }
+        btnlabel={"back home"}
+        btnAddress={"/"}
       />
-      <input
-        type="text"
-        placeholder="desc"
-        onChange={handleChange}
-        name="desc"
-      />
-      <input
-        type="number"
-        placeholder="price"
-        onChange={handleChange}
-        name="price"
-      />
-      <input
-        type="text"
-        placeholder="cover"
-        onChange={handleChange}
-        name="cover"
-      />
+      <div className="form_container">
+        <input
+          type="text"
+          placeholder="title"
+          onChange={handleChange}
+          name="title"
+        />
+        <input
+          type="text"
+          placeholder="desc"
+          onChange={handleChange}
+          name="desc"
+        />
+        <input
+          type="number"
+          placeholder="price"
+          onChange={handleChange}
+          name="price"
+        />
+        <input
+          type="text"
+          placeholder="cover"
+          onChange={handleChange}
+          name="cover"
+        />
 
-      <button className="button" onClick={handleClick}>
-        Update
-      </button>
+        <button className="button" onClick={handleClick}>
+          Update
+        </button>
+      </div>
     </div>
   );
 };

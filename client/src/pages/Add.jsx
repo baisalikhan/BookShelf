@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import HeroSection from "../components/HeroSection";
 
 const Add = () => {
   const navigate = useNavigate();
@@ -18,13 +19,6 @@ const Add = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    // fetch("http://localhost:8800/books", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(book),
-    // });
     try {
       await axios.post("http://localhost:8800/books", book);
       navigate("/");
@@ -34,36 +28,45 @@ const Add = () => {
   };
 
   return (
-    <div className="form">
-      <h1>Add New Book</h1>
-      <input
-        type="text"
-        placeholder="title"
-        onChange={handleChange}
-        name="title"
-      />
-      <input
-        type="text"
-        placeholder="desc"
-        onChange={handleChange}
-        name="desc"
-      />
-      <input
-        type="number"
-        placeholder="price"
-        onChange={handleChange}
-        name="price"
-      />
-      <input
-        type="text"
-        placeholder="cover"
-        onChange={handleChange}
-        name="cover"
+    <div>
+      {/* hero Section */}
+      <HeroSection
+        title="Add New Book"
+        desc="Add new book by entering the book details in its corresponding fields."
+        btnlabel={"back home"}
+        btnAddress={"/"}
       />
 
-      <button className="formButton" onClick={handleClick}>
-        Add
-      </button>
+      <div className="form_container">
+        <input
+          type="text"
+          placeholder="title"
+          onChange={handleChange}
+          name="title"
+        />
+        <input
+          type="text"
+          placeholder="desc"
+          onChange={handleChange}
+          name="desc"
+        />
+        <input
+          type="number"
+          placeholder="price"
+          onChange={handleChange}
+          name="price"
+        />
+        <input
+          type="text"
+          placeholder="cover"
+          onChange={handleChange}
+          name="cover"
+        />
+
+        <button className="formButton" onClick={handleClick}>
+          Add
+        </button>
+      </div>
     </div>
   );
 };

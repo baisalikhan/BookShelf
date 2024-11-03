@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import HeroSection from "../components/HeroSection";
 
 const Books = () => {
   const [books, setBooks] = useState([]);
@@ -31,23 +32,14 @@ const Books = () => {
 
   return (
     <div>
-      {/* homePage_heroSection */}
-      <div className="homePage_heroSection">
-        <h1 className="homePage_title">Bais Book Shop</h1>
-        <h5 className="homePage_desc">
-          This is the description for "Bais Book Shop" Where you will get every
-          kind and category of book on every discounted price
-        </h5>
-      </div>
-
-      {/* Add new book */}
-      <div className="addBook_container">
-        <button className="addBook_button">
-          <Link className="addHome" to="/add">
-            New book
-          </Link>
-        </button>
-      </div>
+      <HeroSection
+        title={"Bais Book Shop"}
+        desc={
+          "This is the description for Bais Book Shop Where you will get every kind and category of book on very discounted price"
+        }
+        btnlabel={"New Book"}
+        btnAddress={"add"}
+      />
 
       {/* Books container */}
       <div className="books_container">

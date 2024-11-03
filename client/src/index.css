@@ -42,9 +42,10 @@ a {
 }
 
 button {
-  background-color: #5e7599;
   color: #e4e8ee;
+  background-color: #5e7599;
   padding: 0.5rem 1rem;
 
   border-radius: 4px;
+  cursor: pointer;
 }

@@ -1,0 +1,35 @@
+.heroSection {
+  display: flex;
+  justify: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: var(--primary-color);
+}
+
+.heroSection_title {
+  color: var(--text-primaryColor);
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+.heroSection_desc {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  color: var(--text-secondaryColor);
+}
+
+/* Main Button */
+.mainButton_container {
+  margin: 2rem 3rem;
+}
+
+.mainButton_button {
+  border: none;
+  color: var(--text-primaryColor);
+  font-weight: bold;
+  cursor: pointer;
+
+  * {
+    color: var(--text-primaryColor);
+  }
+}
